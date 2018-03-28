@@ -38,7 +38,12 @@ const storeSchema = new mongoose.Schema({
     ref: 'User',
     required: 'You must supply an author'
   }
+});
 
+// Define our indexes
+storeSchema.index({
+    name: 'text',
+    description: 'text'
 });
 
 storeSchema.pre('save', async function(next) {
